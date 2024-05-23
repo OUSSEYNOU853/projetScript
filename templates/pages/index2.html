@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tailwind.css">
+    <title>Document</title>
+</head>
+<body class="w-full h-full flex justify-center items-center border-solid border-white border">
+    <div class="container ">
+        <h2 style="color:blue; padding-top: 3%;padding-left: 7%;">BIENVENUE DANS L'INTERFACE D'AUTHENTIFICATION</h2>
+        <form id="form">
+            <h2 style="color:white;">Veillez renseignez les informations suivantes</h2>
+            <div class="content">
+                <label for="prenom">Entrez votre Prenom</label>
+                <input type="text" id="prenom" placeholder="veillez renseignez votre prenom ici">
+                <span class="error-message">error</span>
+            </div>
+            <div class="content">
+                <label for="nom">Entrez votre Nom</label>
+                <input type="text" id="nom" placeholder="veillez renseignez votre nom ici">
+                <span class="error-message">error</span>
+            </div>
+            <div class="content">
+                <label for="email">Entrez votre Email</label>
+                <input type="text" id="email" placeholder="veillez renseignez votre email ici">
+                <span class="error-message">error</span>
+            </div>
+            <div class="content">
+                <label for="password">Entrez votre Mot de passe</label>
+                <input type="text" id="password" placeholder="veillez renseignez votre mot de passe ici">
+                <span class="error-message">error</span>
+            </div>
+            <div class="content">
+                <label for="confirmation">Confirmer votre Mot de passe</label>
+                <input type="password" id="confirmation" placeholder="veillez confirmer votre mot de passe ici">
+                <span class="error-message">error</span>
+            </div>
+            <button type="submit">SUIVANT</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
