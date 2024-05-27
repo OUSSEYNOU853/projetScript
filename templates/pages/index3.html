@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diapositives</title>
+    <style>
+        .slide {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide active">Slide 1</div>
+    <div class="slide">Slide 2</div>
+    <div class="slide">Slide 3</div>
+    <button onclick="nextSlide()">Next Slide</button>
+    <button onclick="prevSlide()">Previous Slide</button>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            if (index >= 0 && index < slides.length) {
+                slides[index].classList.add('active');
+            }
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0; // Revient à la première diapositive
+            }
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1; // Revient à la dernière diapositive
+            }
+            showSlide(currentSlide);
+        }
+
+        // Initialiser la première diapositive
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

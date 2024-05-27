@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Terrestre = exports.Maritime = exports.Aerienne = exports.Cargaison = void 0;
-class Cargaison {
+export class Cargaison {
     constructor(frais, distance) {
         this.produits = [];
         this.frais = frais;
@@ -39,22 +36,18 @@ class Cargaison {
         this.distance = distance;
     }
 }
-exports.Cargaison = Cargaison;
-class Aerienne extends Cargaison {
+export class Aerienne extends Cargaison {
     calculerFrais() {
         return this.frais * this.distance;
     }
 }
-exports.Aerienne = Aerienne;
-class Maritime extends Cargaison {
+export class Maritime extends Cargaison {
     calculerFrais() {
         return this.frais * this.distance;
     }
 }
-exports.Maritime = Maritime;
-class Terrestre extends Cargaison {
+export class Terrestre extends Cargaison {
     calculerFrais() {
         return this.frais * this.distance;
     }
 }
-exports.Terrestre = Terrestre;

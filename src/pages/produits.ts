@@ -1,44 +1,63 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Incassable = exports.Fragile = exports.Chimique = exports.Alimentaire = void 0;
-class Alimentaire {
-    constructor(libelle, poids) {
+// produit.ts
+export interface Produit {
+    libelle: string;
+    poids: number;
+}
+
+export class Alimentaire implements Produit {
+    libelle: string;
+    poids: number;
+
+    constructor(libelle: string, poids: number) {
         this.libelle = libelle;
         this.poids = poids;
     }
+
     info() {
         console.log(`Le poids de ${this.libelle} est de ${this.poids} kg`);
     }
 }
-exports.Alimentaire = Alimentaire;
-class Chimique {
-    constructor(libelle, poids, toxicite) {
+
+export class Chimique implements Produit {
+    libelle: string;
+    poids: number;
+    toxicite: number;
+
+    constructor(libelle: string, poids: number, toxicite: number) {
         this.libelle = libelle;
         this.poids = poids;
         this.toxicite = toxicite;
     }
+
     info() {
         console.log(`Le poids de ${this.libelle} est de ${this.poids} kg avec une toxicité de ${this.toxicite}`);
     }
 }
-exports.Chimique = Chimique;
-class Fragile {
-    constructor(libelle, poids) {
+
+export class Fragile implements Produit {
+    libelle: string;
+    poids: number;
+
+    constructor(libelle: string, poids: number) {
         this.libelle = libelle;
         this.poids = poids;
     }
+
     info() {
         console.log(`Le poids de ${this.libelle} est de ${this.poids} kg`);
     }
 }
-exports.Fragile = Fragile;
-class Incassable {
-    constructor(libelle, poids) {
+
+export class Incassable implements Produit {
+    libelle: string;
+    poids: number;
+
+    constructor(libelle: string, poids: number) {
         this.libelle = libelle;
         this.poids = poids;
     }
+
     info() {
         console.log(`Le poids de ${this.libelle} est de ${this.poids} kg`);
     }
 }
-exports.Incassable = Incassable;

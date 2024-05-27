@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 // if (!isset($_SESSION['email'])) {
 //     include "../templates/pages/connexion.html.php";

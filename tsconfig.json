@@ -22,7 +22,7 @@
     // "useDefineForClassFields": true,                  /* Émettre des champs de classe conformes aux normes ECMAScript. */
     // "moduleDetection": "auto",                        /* Contrôler la méthode utilisée pour détecter les fichiers JS au format module. */
     /* Modules */
-    "module": "commonjs",                                /* Spécifier quel code de module est généré. */
+    "module": "ES6",                                /* Spécifier quel code de module est généré. */
     "rootDir": "./src",                                  /* Spécifier le dossier racine dans vos fichiers sources. */
     // "moduleResolution": "node10",                     /* Spécifier comment TypeScript recherche un fichier à partir d'un spécificateur de module donné. */
     // "baseUrl": "./",                                  /* Spécifier le répertoire de base pour résoudre les noms de modules non relatifs. */
@@ -51,7 +51,7 @@
     // "inlineSourceMap": true,                          /* Inclure les fichiers sourcemap dans le JavaScript émis. */
     // "outFile": "./",                                  /* Spécifier un fichier qui regroupe toutes les sorties en un fichier JavaScript. Si 'declaration' est vrai, désigne également un fichier qui regroupe toute la sortie .d.ts. */
     "outDir": "./dist",                                   /* Spécifier un dossier de sortie pour tous les fichiers émis. */
-    // "removeComments": true,                           /* Désactiver l'émission de commentaires. */
+    "removeComments": true,                           /* Désactiver l'émission de commentaires. */
     // "noEmit": true,                                   /* Désactiver l'émission de fichiers lors d'une compilation. */
     // "importHelpers": true,                            /* Permettre l'importation de fonctions d'assistance à partir de tslib une seule fois par projet, au lieu de les inclure par fichier. */
     // "importsNotUsedAsValues": "remove",               /* Spécifier le comportement d'émission/vérification pour les importations utilisées uniquement pour les types. */
@@ -98,7 +98,7 @@
     // "skipDefaultLibCheck": true,                      /* Ignorer la vérification des types pour les fichiers .d.ts inclus avec TypeScript. */
     "skipLibCheck": true,                                /* Ignorer la vérification des types pour tous les fichiers de bibliothèque. */
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "test.ts", "script.ts"],
   "exclude": ["node_modules", "dist"]
 }
 // "target": "ESNext",

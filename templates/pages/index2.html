@@ -1,46 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tailwind.css">
-    <title>Document</title>
+    <title>Pagination avec TailwindCSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="w-full h-full flex justify-center items-center border-solid border-white border">
-    <div class="container ">
-        <h2 style="color:blue; padding-top: 3%;padding-left: 7%;">BIENVENUE DANS L'INTERFACE D'AUTHENTIFICATION</h2>
-        <form id="form">
-            <h2 style="color:white;">Veillez renseignez les informations suivantes</h2>
-            <div class="content">
-                <label for="prenom">Entrez votre Prenom</label>
-                <input type="text" id="prenom" placeholder="veillez renseignez votre prenom ici">
-                <span class="error-message">error</span>
-            </div>
-            <div class="content">
-                <label for="nom">Entrez votre Nom</label>
-                <input type="text" id="nom" placeholder="veillez renseignez votre nom ici">
-                <span class="error-message">error</span>
-            </div>
-            <div class="content">
-                <label for="email">Entrez votre Email</label>
-                <input type="text" id="email" placeholder="veillez renseignez votre email ici">
-                <span class="error-message">error</span>
-            </div>
-            <div class="content">
-                <label for="password">Entrez votre Mot de passe</label>
-                <input type="text" id="password" placeholder="veillez renseignez votre mot de passe ici">
-                <span class="error-message">error</span>
-            </div>
-            <div class="content">
-                <label for="confirmation">Confirmer votre Mot de passe</label>
-                <input type="password" id="confirmation" placeholder="veillez confirmer votre mot de passe ici">
-                <span class="error-message">error</span>
-            </div>
-            <button type="submit">SUIVANT</button>
-        </form>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-3xl p-4 bg-white rounded-lg shadow-md">
+        <div class="relative h-64 flex flex-col items-center justify-between">
+            <!-- Button pointing up -->
+            <button class="swiper-button-up bg-white text-black hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-full">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 2l-6 6h4v6h4v-6h4l-6-6z" fill="#3C3C3C"></path>
+                </svg>
+            </button>
+        
+            <!-- Button pointing down -->
+            <button class="swiper-button-down bg-white text-black hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-full">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 14l6-6h-4V2H6v6H2l6 6z" fill="#3C3C3C"></path>
+                </svg>
+            </button>
+        </div>
+        
+        
     </div>
-    <script src="script.js"></script>
+
 </body>
 
 </html>
