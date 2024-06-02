@@ -1,4 +1,4 @@
-// import { Produit } from "./Produit.js";
+// import { Produit, ProduitAlimentaire, ProduitChimique, ProduitMateriel, ProduitFragile, ProduitIncassable } from "./Produits";
 
 
 class Cargaison {

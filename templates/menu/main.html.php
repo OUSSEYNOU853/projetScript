@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d2ba3c872c.js" crossorigin="anonymous"></script>
-<script type="module" src="../../dist/index.js" defer></script>
+    <script type="module" src="../../dist/index.js" defer></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="tailwind.css">
     <title>GP MONDE</title>
@@ -115,8 +115,37 @@
         }
 
         .card-container {
-            max-height: 600px; /* Ajustez la hauteur maximale pour le conteneur des cartes */
+            max-height: 600px;
+            /* Ajustez la hauteur maximale pour le conteneur des cartes */
             overflow-y: auto;
+        }
+
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination-button {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .pagination-button:hover {
+            background-color: #357ABD;
+        }
+
+        @media (min-width: 1024px) {
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 1rem;
+            }
         }
     </style>
 </head>
