@@ -25,8 +25,10 @@
     "module": "ES6",                                /* Spécifier quel code de module est généré. */
     "rootDir": "./src",                                  /* Spécifier le dossier racine dans vos fichiers sources. */
     // "moduleResolution": "node10",                     /* Spécifier comment TypeScript recherche un fichier à partir d'un spécificateur de module donné. */
-    // "baseUrl": "./",                                  /* Spécifier le répertoire de base pour résoudre les noms de modules non relatifs. */
-    // "paths": {},                                      /* Spécifier un ensemble d'entrées qui ré-mappent les importations vers des emplacements de recherche supplémentaires. */
+    "baseUrl": ".",                                  /* Spécifier le répertoire de base pour résoudre les noms de modules non relatifs. */
+    "paths": {
+      ".controller/*": ["src/controller/*"]
+    },                                      /* Spécifier un ensemble d'entrées qui ré-mappent les importations vers des emplacements de recherche supplémentaires. */
     // "rootDirs": [],                                   /* Permettre à plusieurs dossiers d'être traités comme un seul lors de la résolution des modules. */
     // "typeRoots": [],                                  /* Spécifier plusieurs dossiers qui agissent comme './node_modules/@types'. */
     // "types": [],                                      /* Spécifier les noms des paquets de types à inclure sans être référencés dans un fichier source. */

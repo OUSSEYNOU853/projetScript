@@ -1,53 +1,39 @@
-export class Cargaison {
-    constructor(frais, distance) {
-        this.produits = [];
-        this.frais = frais;
-        this.distance = distance;
+"use strict";
+const searchButton = document.getElementById('search-button');
+const popupForm = document.getElementById('popupForm');
+const overlay = document.getElementById('overlay');
+searchButton.addEventListener('click', function () {
+    popupForm.style.display = 'block';
+    overlay.style.display = 'block';
+});
+overlay.addEventListener('click', function () {
+    popupForm.style.display = 'none';
+    overlay.style.display = 'none';
+});
+const toggleViewBtn = document.getElementById('toggleViewBtn');
+toggleViewBtn.addEventListener('click', function () {
+    const cardsView = document.getElementById('cards-view');
+    const listView = document.getElementById('list-view');
+    const toggleViewIcon = document.getElementById('toggleViewIcon');
+    cardsView.classList.toggle('hidden');
+    listView.classList.toggle('hidden');
+    toggleViewIcon.classList.toggle('fa-list');
+    toggleViewIcon.classList.toggle('fa-th');
+});
+const choix = document.getElementById('choix');
+choix.addEventListener('change', function () {
+    const poidMaxField = document.getElementById('poidMax');
+    const nombreMaxField = document.getElementById('nombreMax');
+    if (this.value === 'poids') {
+        poidMaxField.style.display = 'block';
     }
-    ajouterProduit(produit) {
-        if (this.produits.length >= 10) {
-            console.log("Vous ne pouvez pas ajouter plus de 10 produits");
-            return;
-        }
-        this.produits.push(produit);
+    else {
+        poidMaxField.style.display = 'none';
     }
-    nombreProduits() {
-        return this.produits.length;
+    if (this.value === 'nombre') {
+        nombreMaxField.style.display = 'block';
     }
-    sommeTotal() {
-        return this.produits.reduce((total, produit) => total + produit.poids * this.frais, 0);
+    else {
+        nombreMaxField.style.display = 'none';
     }
-    getFrais() {
-        return this.frais;
-    }
-    getDistance() {
-        return this.distance;
-    }
-    getProduits() {
-        return this.produits;
-    }
-    setProduits(produits) {
-        this.produits = produits;
-    }
-    setFrais(frais) {
-        this.frais = frais;
-    }
-    setDistance(distance) {
-        this.distance = distance;
-    }
-}
-export class Aerienne extends Cargaison {
-    calculerFrais() {
-        return this.frais * this.distance;
-    }
-}
-export class Maritime extends Cargaison {
-    calculerFrais() {
-        return this.frais * this.distance;
-    }
-}
-export class Terrestre extends Cargaison {
-    calculerFrais() {
-        return this.frais * this.distance;
-    }
-}
+});

@@ -1,35 +1,165 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagination avec TailwindCSS</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Test de filtrage</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body>
+    <h1>Test de filtrage</h1>
 
-    <div class="w-full max-w-3xl p-4 bg-white rounded-lg shadow-md">
-        <div class="relative h-64 flex flex-col items-center justify-between">
-            <!-- Button pointing up -->
-            <button class="swiper-button-up bg-white text-black hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-full">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 2l-6 6h4v6h4v-6h4l-6-6z" fill="#3C3C3C"></path>
-                </svg>
-            </button>
-        
-            <!-- Button pointing down -->
-            <button class="swiper-button-down bg-white text-black hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white p-2 rounded-full">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 14l6-6h-4V2H6v6H2l6 6z" fill="#3C3C3C"></path>
-                </svg>
-            </button>
-        </div>
-        
-        
-    </div>
+    <form id="filter-form">
+        <label for="numero-filter">Filtrer par numéro : </label>
+        <input type="text" id="numero-filter" name="numero-filter">
 
+        <label for="type-filter">Filtrer par type : </label>
+        <select id="type-filter" name="type-filter">
+            <option value="">Tous</option>
+            <option value="aérien">Aérien</option>
+            <option value="maritime">Maritime</option>
+            <option value="terrestre">Terrestre</option>
+        </select>
+
+        <label for="etat-filter">Filtrer par état : </label>
+        <select id="etat-filter" name="etat-filter">
+            <option value="">Tous</option>
+            <option value="ouvert">Ouvert</option>
+            <option value="fermé">Fermé</option>
+            <option value="en Attente">En Attente</option>
+        </select>
+
+        <label for="destination-filter">Filtrer par destination : </label>
+        <input type="text" id="destination-filter" name="destination-filter">
+
+        <label for="depart-filter">Filtrer par lieu de départ : </label>
+        <input type="text" id="depart-filter" name="depart-filter">
+
+        <label for="date-depart-filter">Filtrer par date de départ : </label>
+        <input type="date" id="date-depart-filter" name="date-depart-filter">
+
+        <label for="date-arrivee-filter">Filtrer par date d'arrivée : </label>
+        <input type="date" id="date-arrivee-filter" name="date-arrivee-filter">
+
+        <button type="submit">Filtrer</button>
+    </form>
+
+    <table id="cargaison-table">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Type</th>
+                <th>Lieu de départ</th>
+                <th>Destination</th>
+                <th>Date de départ</th>
+                <th>Date d'arrivée</th>
+                <th>Distance</th>
+                <th>Poids max</th>
+                <th>État</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CGS123</td>
+                <td>Aérien</td>
+                <td>Paris</td>
+                <td>New York</td>
+                <td>2023-03-15</td>
+                <td>2023-03-16</td>
+                <td>5836</td>
+                <td>10000</td>
+                <td>Ouvert</td>
+            </tr>
+            <tr>
+                <td>CGS456</td>
+                <td>Maritime</td>
+                <td>Le Havre</td>
+                <td>Shanghai</td>
+                <td>2023-04-01</td>
+                <td>2023-05-01</td>
+                <td>20000</td>
+                <td>50000</td>
+                <td>Fermé</td>
+            </tr>
+            <tr>
+                <td>CGS789</td>
+                <td>Terrestre</td>
+                <td>Lyon</td>
+                <td>Milan</td>
+                <td>2023-03-20</td>
+                <td>2023-03-21</td>
+                <td>500</td>
+                <td>20000</td>
+                <td>En Attente</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterForm = document.getElementById('filters');
+            const cargaisonList = document.getElementById('cargaisonList');
+
+            filterForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const numeroFilter = document.getElementById('numeroFilter').value.trim().toLowerCase();
+                const typeFilter = document.getElementById('typeFilter').value.trim().toLowerCase();
+                const etatFilter = document.getElementById('etatFilter').value.trim().toLowerCase();
+                const destinationFilter = document.getElementById('destinationFilter').value.trim().toLowerCase();
+                const departFilter = document.getElementById('departFilter').value.trim().toLowerCase();
+                const dateDepartFilter = document.getElementById('dateDepartFilter').value.trim();
+                const dateArriveeFilter = document.getElementById('dateArriveeFilter').value.trim();
+
+                const cargaisons = Array.from(cargaisonList.getElementsByTagName('tr'));
+
+                const filteredCargaisons = cargaisons.filter((cargaison) => {
+                    const numero = cargaison.getElementsByTagName('td')[0].textContent.trim().toLowerCase();
+                    const type = cargaison.getElementsByTagName('td')[1].textContent.trim().toLowerCase();
+                    const etat = cargaison.getElementsByTagName('td')[7].textContent.trim().toLowerCase();
+                    const destination = cargaison.getElementsByTagName('td')[3].textContent.trim().toLowerCase();
+                    const depart = cargaison.getElementsByTagName('td')[2].textContent.trim().toLowerCase();
+                    const dateDepart = cargaison.getElementsByTagName('td')[4].textContent.trim();
+                    const dateArrivee = cargaison.getElementsByTagName('td')[5].textContent.trim();
+
+                    return (
+                        (!numeroFilter || numero.includes(numeroFilter)) &&
+                        (!typeFilter || type === typeFilter) &&
+                        (!etatFilter || etat === etatFilter) &&
+                        (!destinationFilter || destination.includes(destinationFilter)) &&
+                        (!departFilter || depart.includes(departFilter)) &&
+                        (!dateDepartFilter || dateDepart === dateDepartFilter) &&
+                        (!dateArriveeFilter || dateArrivee === dateArriveeFilter)
+                    );
+                });
+
+                // Masquer toutes les lignes de la table
+                cargaisons.forEach((cargaison) => {
+                    cargaison.style.display = 'none';
+                });
+
+                // Afficher les lignes filtrées
+                filteredCargaisons.forEach((cargaison) => {
+                    cargaison.style.display = '';
+                });
+            });
+        });
+
+    </script>
 </body>
 
 </html>
